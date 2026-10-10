@@ -1,0 +1,44 @@
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# Runtime data, models, logs and generated outputs
+backend/data/
+data/
+datasets/
+outputs/
+runs/
+artifacts/
+results/
+logs/
+checkpoints/
+models/
+*.db
+*.sqlite*
+*.log
+*.out
+*.err
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.pdf
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+
+.DS_Store

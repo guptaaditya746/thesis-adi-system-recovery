@@ -1,0 +1,33 @@
+@prefix dblp: <https://dblp.org/rdf/schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dblp:Publication a owl:Class ; rdfs:label "Publication" ; rdfs:comment "A scholarly publication." .
+dblp:Person a owl:Class ; rdfs:label "Person" ; rdfs:comment "A person associated with scholarly work." .
+dblp:Venue a owl:Class ; rdfs:label "Venue" ; rdfs:comment "A publication venue." .
+dblp:Dataset a owl:Class ; rdfs:label "Dataset" ; rdfs:comment "A dataset referenced or used by research." .
+dblp:Method a owl:Class ; rdfs:label "Method" ; rdfs:comment "A research method or technique." .
+
+dblp:authoredBy a rdf:Property, owl:ObjectProperty ;
+  rdfs:label "authored by" ; rdfs:domain dblp:Publication ; rdfs:range dblp:Person ;
+  rdfs:comment "The publication was authored by the person." .
+
+dblp:publishedIn a rdf:Property, owl:ObjectProperty ;
+  rdfs:label "published in" ; rdfs:domain dblp:Publication ; rdfs:range dblp:Venue ;
+  rdfs:comment "The publication appeared in the venue." .
+
+dblp:usesDataset a rdf:Property, owl:ObjectProperty ;
+  rdfs:label "uses dataset" ; rdfs:domain dblp:Publication ; rdfs:range dblp:Dataset ;
+  rdfs:comment "The publication uses or evaluates on a dataset." .
+
+dblp:usesMethod a rdf:Property, owl:ObjectProperty ;
+  rdfs:label "uses method" ; rdfs:domain dblp:Publication ; rdfs:range dblp:Method ;
+  rdfs:comment "The publication uses a research method or technique." .
+
+dblp:title a rdf:Property, owl:DatatypeProperty ;
+  rdfs:label "title" ; rdfs:domain dblp:Publication ; rdfs:range xsd:string .
+
+dblp:yearOfPublication a rdf:Property, owl:DatatypeProperty ;
+  rdfs:label "year of publication" ; rdfs:domain dblp:Publication ; rdfs:range xsd:gYear .

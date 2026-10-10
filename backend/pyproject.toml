@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thesis-adi-backend"
+version = "0.1.0"
+description = "Ontology-guided multi-agent scientific paper KG research backend"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.116",
+  "uvicorn[standard]>=0.35",
+  "python-multipart>=0.0.20",
+  "pydantic>=2.11",
+  "pydantic-settings>=2.10",
+  "pydantic-ai>=2.18",
+  "pydantic-ai-harness>=0.1",
+  "rdflib>=7.1",
+  "pyshacl>=0.30",
+  "pymupdf>=1.26",
+  "httpx>=0.28",
+  "aiosqlite>=0.21",
+  "networkx>=3.4",
+  "tenacity>=9.1",
+  "orjson>=3.10",
+  "litellm>=1.70",
+]
+
+[project.optional-dependencies]
+eval = ["deepeval>=4.1"]
+observability = ["langtrace-python-sdk>=1.1.26", "logfire>=3.0"]
+dev = ["pytest>=8.3", "pytest-asyncio>=0.25", "ruff>=0.12", "mypy>=1.17"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
